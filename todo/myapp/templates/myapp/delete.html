@@ -1,3 +1,5 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 <p>Are you sure you want to delete "{{item}}"</p>
 <a href="{% url 'list' %}">Cancel</a>
 <form action="" method="POST">

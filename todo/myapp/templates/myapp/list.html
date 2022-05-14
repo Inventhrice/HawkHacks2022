@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,36 +8,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <<<<<<< HEAD=======<link rel="stylesheet" href="{% static 'styles.css' %}">
 
+        >>>>>>> 951c6dd417379bf217aaa40e8f54b2338695b48b
 </head>
 
 <body>
     <div class="center-column">
-        <form method="POST" action="/">
-            {% csrf_token %}
-            {{form.title}}
-            <input class="btn btn-info" type="submit" name="Create Task">
-        </form>
+        <<<<<<< HEAD=======<h1>TODO:</h1>
+            >>>>>>> 951c6dd417379bf217aaa40e8f54b2338695b48b
+            <form method="POST" action="/">
+                {% csrf_token %}
+                {{form.title}}
+                <input class="btn btn-info" type="submit" name="Create Task">
+            </form>
 
-        <div class="todo-list">
+            <div class="todo-list">
 
-            {% for task in tasks %}
-            <div class="item-row">
-                <input type="checkbox" class="checkbox-inline">
-                <label for="taskRow">
-                    <span>{{task}}</span>
-                </label>
+                {% for task in tasks %}
+                <div class="item-row">
+                    <input type="checkbox" class="checkbox-inline">
+                    <label for="taskRow">
+                        <span>{{task}}</span>
+                    </label>
 
-                <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
-                <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+                    <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
 
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
     </div>
 </body>
 <style>
-    body {
+    <<<<<<< HEAD body {
         background-color: #638CB8;
     }
 
@@ -90,6 +95,8 @@
     label>span {
         display: block;
     }
+
+    =======>>>>>>>951c6dd417379bf217aaa40e8f54b2338695b48b
 </style>
 
 </html>
