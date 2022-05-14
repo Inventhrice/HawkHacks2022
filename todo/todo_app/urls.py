@@ -3,5 +3,6 @@ from . import views
 
 #URLConfig
 urlpatterns = [
-    path('index/', views.todo_app_view)
+    path('', views.todo_app_view),
+    path('addTodoItem/', views.addTodo)
 ]
