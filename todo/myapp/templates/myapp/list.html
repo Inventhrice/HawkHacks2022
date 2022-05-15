@@ -27,10 +27,10 @@
             <div class="item-row container">
                 <div class="row">
                     <div class="col">
-                        <input class="form-check-input" id="check" type="checkbox" onclick="complete()">
+                        <input type="checkbox" class="chk" onclick="complete({% task.id %})">
                     </div>
                     <div class="col-6">
-                        <span id="todo-item">{{task}}</span>
+                        <span>{{task}}</span>
                     </div>
                     <div class="col">
                         <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
@@ -47,12 +47,14 @@
 
 <script>
     function complete() {
-        var checkBox = document.getElementById("check");
-        var task = document.getElementById("todo-item");
-        if (checkBox.checked == true) {
-            task.style.textDecoration = "line-through";
-        } else {
-            task.style.textDecoration = "none";
+        var checkBoxes = document.getElementsByClassName("chk");
+        var tasks = document.getElementsByClassName("col-6");
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked == true) {
+                tasks[i].style.textDecoration = "line-through";
+            } else {
+                tasks[i].style.textDecoration = "none";
+            }
         }
     }
 </script>
