@@ -8,95 +8,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <<<<<<< HEAD=======<link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 
-        >>>>>>> 951c6dd417379bf217aaa40e8f54b2338695b48b
 </head>
 
 <body>
     <div class="center-column">
-        <<<<<<< HEAD=======<h1>TODO:</h1>
-            >>>>>>> 951c6dd417379bf217aaa40e8f54b2338695b48b
-            <form method="POST" action="/">
-                {% csrf_token %}
-                {{form.title}}
-                <input class="btn btn-info" type="submit" name="Create Task">
-            </form>
+        <h3 class="text-info">To-Do:</h3>
+        <form method="POST" action="/">
+            {% csrf_token %}
+            {{form.title}}
+            <input class="btn btn-info" type="submit" value="Add">
+        </form>
 
-            <div class="todo-list">
+        <div class="todo-list">
 
-                {% for task in tasks %}
-                <div class="item-row">
-                    <input type="checkbox" class="checkbox-inline">
-                    <label for="taskRow">
+            {% for task in tasks %}
+            <div class="item-row container">
+                <div class="row">
+                    <div class="col">
+                        <form action="{% url 'complete' task.id %}" method="POST" class="form">
+                            <input type="checkbox" class="chk" onclick="complete()">
+                        </form>
+                    </div>
+                    <div class="col-6">
                         <span>{{task}}</span>
-                    </label>
-
-                    <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
-                    <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
-
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+                    </div>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
-<style>
-    <<<<<<< HEAD body {
-        background-color: #638CB8;
-    }
 
-    input {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
+<script>
+    function complete() {
+        var checkBoxes = document.getElementsByClassName("chk");
+        var tasks = document.getElementsByClassName("col-6");
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked == true) {
+                tasks[i].style.textDecoration = "line-through";
+            } else {
+                tasks[i].style.textDecoration = "none";
+            }
+            checkBoxes[i].onchange = function () {
+                checkBoxes[i].form.submit();
+            };
+        }
     }
-
-    input::placeholder {
-        color: #d3d3d3;
-    }
-
-    .submit {
-        background-color: #6BA3E8;
-    }
-
-    .center-column {
-        width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 3px;
-        box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
-    }
-
-    .item-row {
-        background-color: #906abd;
-        margin: 10px;
-        padding: 20px;
-        border-radius: 3px;
-        color: #fff;
-        font-size: 16px;
-        box-shadow: 0px -1px 10px -4px rgba(0, 0, 0, 0.75);
-    }
-
-    .btn-danger {
-        background-color: #ffae19;
-        border-color: #e59400;
-    }
-
-    .item-row>input[type="checkbox"] {
-        display: inline-block;
-    }
-
-    .item-row>input[type="checkbox"]~label {
-        display: inline-block;
-    }
-
-    label>span {
-        display: block;
-    }
-
-    =======>>>>>>>951c6dd417379bf217aaa40e8f54b2338695b48b
-</style>
+</script>
 
 </html>
