@@ -26,7 +26,7 @@ We are done. Welcome to your to-do list!
 
 ---
 
-![image](/res/add.png)
+![image](/res/add.png)  
 Type in the input box and press enter or click the 'Add' button.
 
 ### Update
