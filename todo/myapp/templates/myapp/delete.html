@@ -3,8 +3,23 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <p>Are you sure you want to delete "{{item}}"</p>
-<a href="{% url 'list' %}">Cancel</a>
-<form action="" method="POST">
-    {% csrf_token %}
-    <input class="btn btn-sm btn-danger" type="submit" name="Yes">
-</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-sm btn-info" href="{% url 'list' %}">Cancel</a>
+        </div>
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input class="btn btn-sm btn-danger" type="submit" name="Yes">
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn {
+        width: 20%;
+    }
+</style>
