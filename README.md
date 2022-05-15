@@ -62,8 +62,8 @@ To change the task state in datebase, you need to **click 'Update'**, check the 
 1. Save the state change via checkbox into database
 2. Time and Date attribute of the Task model: so we can implement a Reminder function for this app
 3. Calendar view: give a overview of all tasks schduled in a specific time period
-4. Tag and Priority level attribute: group and classify the tasks and choose which oned to be displayed on the webpage
+4. Tag and Priority level attribute: group and classify the tasks and choose which ones to be displayed on the webpage
 5. Sort functions: sort by time, date, priority or tags
-6. others
+6. more...
 
 **Anyone is welcomed to fork and contribute**
