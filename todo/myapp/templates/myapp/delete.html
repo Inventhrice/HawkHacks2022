@@ -1,8 +1,45 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'styles.css' %}">
-<p>Are you sure you want to delete "{{item}}"</p>
-<a href="{% url 'list' %}">Cancel</a>
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" name="Yes">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <div class="center-column">
+        <p>Are you sure you want to delete "{{item}}"</p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-sm btn-info" href="{% url 'list' %}">No</a>
+                </div>
+                <div class="col">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input class="btn btn-sm btn-danger" type="submit" Value="Yes">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<style>
+    .btn {
+        width: 20%;
+    }
+
+    body {
+        background-color: #638cb8;
+    }
+</style>
+
+</html>

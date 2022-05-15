@@ -38,3 +38,9 @@ def deleteTask(request, pk):
         return redirect('/')
     context = {'item':item}
     return render(request, 'myapp/delete.html', context)
+
+def complete(request, ok):
+    item = Task.objects.get(id=pk)
+    if request.method == 'POST':
+        item.complete = not item.complete
+    return redirect('/')    

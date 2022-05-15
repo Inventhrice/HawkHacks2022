@@ -11,6 +11,7 @@
     <<<<<<< HEAD=======<link rel="stylesheet" href="{% static 'styles.css' %}">
 
         >>>>>>> 951c6dd417379bf217aaa40e8f54b2338695b48b
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 
 <body>
@@ -22,6 +23,12 @@
                 {{form.title}}
                 <input class="btn btn-info" type="submit" name="Create Task">
             </form>
+        <h3 class="text-info">To-Do:</h3>
+        <form method="POST" action="/">
+            {% csrf_token %}
+            {{form.title}}
+            <input class="btn btn-info" type="submit" value="Add">
+        </form>
 
             <div class="todo-list">
 
@@ -37,6 +44,24 @@
 
                 </div>
                 {% endfor %}
+            {% for task in tasks %}
+            <div class="item-row container">
+                <div class="row">
+                    <div class="col">
+                        <form action="{% url 'complete' task.id %}" method="POST" class="form">
+                            <input type="checkbox" class="chk" onclick="complete()">
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <span>{{task}}</span>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+                    </div>
+                </div>
             </div>
     </div>
 </body>
@@ -98,5 +123,21 @@
 
     =======>>>>>>>951c6dd417379bf217aaa40e8f54b2338695b48b
 </style>
+<script>
+    function complete() {
+        var checkBoxes = document.getElementsByClassName("chk");
+        var tasks = document.getElementsByClassName("col-6");
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked == true) {
+                tasks[i].style.textDecoration = "line-through";
+            } else {
+                tasks[i].style.textDecoration = "none";
+            }
+            checkBoxes[i].onchange = function () {
+                checkBoxes[i].form.submit();
+            };
+        }
+    }
+</script>
 
 </html>
