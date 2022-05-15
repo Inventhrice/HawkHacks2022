@@ -24,13 +24,19 @@
         <div class="todo-list">
 
             {% for task in tasks %}
-            <div class="item-row">
-                <div class="form-check d-flex flex-row">
+            <div class="item-row d-flex flex-row">
+                <div class="form-check pt4">
                     <input class="form-check-input" id="check" type="checkbox" onclick="complete()">
-                    <label class="form-check-label d-inline-block ml3 .align-middle" for="check" id="todo-item">
+                </div>
+                <div class="pt4">
+                    <span id="todo-item">
                         {{task}}
-                    </label>
+                    </span>
+                </div>
+                <div>
                     <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+                </div>
+                <div>
                     <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
                 </div>
 
