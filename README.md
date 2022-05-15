@@ -5,8 +5,6 @@ It provides the basic CRUD functions.
 
 ## To Start
 
----
-
 To play with this app, you should firstly install Django: `pip install django`
 
 > For more details, check this [How to install Django](https://docs.djangoproject.com/en/4.0/topics/install/)
@@ -23,8 +21,6 @@ Then open this url(<http://127.0.0.1:8000/>) in your **browser**.
 We are done. Welcome to your to-do list!
 
 ## CRUD Operations
-
----
 
 ### Add tasks
 
@@ -62,8 +58,6 @@ At present, the changed task state will not be saved into database.
 To change the task state in datebase, you need to **click 'Update'**, check the complete box and **'Save'**. We will fix this later.
 
 ## Future improvements
-
----
 
 1. Save the state change via checkbox into database
 2. Time and Date attribute of the Task model: so we can implement a Reminder function for this app
