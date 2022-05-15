@@ -27,7 +27,9 @@
             <div class="item-row container">
                 <div class="row">
                     <div class="col">
-                        <input type="checkbox" class="chk" onclick="complete({% task.id %})">
+                        <form action="{% url 'complete' task.id %}" method="POST" class="form">
+                            <input type="checkbox" class="chk" onclick="complete()">
+                        </form>
                     </div>
                     <div class="col-6">
                         <span>{{task}}</span>
@@ -55,6 +57,9 @@
             } else {
                 tasks[i].style.textDecoration = "none";
             }
+            checkBoxes[i].onchange = function () {
+                checkBoxes[i].form.submit();
+            };
         }
     }
 </script>
