@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    
+
 </head>
 
 <body>
     <div class="center-column">
-        <h1>TODO:</h1>
+        <h3 class="text-info">Todo-list:</h3>
         <form method="POST" action="/">
             {% csrf_token %}
             {{form.title}}
@@ -25,21 +25,31 @@
 
             {% for task in tasks %}
             <div class="item-row">
-                <input type="checkbox" class="checkbox-inline">
-                <label for="taskRow">
-                    <span>{{task}}</span>
-                </label>
-
-                <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
-                <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+                <div class="form-check d-flex flex-row">
+                    <input class="form-check-input" id="check" type="checkbox" onclick="complete()">
+                    <label class="form-check-label d-inline-block ml3 .align-middle" for="check" id="todo-item">
+                        {{task}}
+                    </label>
+                    <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+                </div>
 
             </div>
             {% endfor %}
         </div>
     </div>
 </body>
-<style>
-   
-</style>
+
+<script>
+    function complete() {
+        var checkBox = document.getElementById("check");
+        var task = document.getElementById("todo-item");
+        if (checkBox.checked == true) {
+            task.style.textDecoration = "line-through";
+        } else {
+            task.style.textDecoration = "none";
+        }
+    }
+</script>
 
 </html>
