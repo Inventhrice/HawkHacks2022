@@ -8,15 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<<<<<<< HEAD
     <<<<<<< HEAD=======<link rel="stylesheet" href="{% static 'styles.css' %}">
 
         >>>>>>> 951c6dd417379bf217aaa40e8f54b2338695b48b
+=======
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 
+>>>>>>> 53f887922643adf16a8a7bd80a807676d031a1b3
 </head>
 
 <body>
     <div class="center-column">
+<<<<<<< HEAD
         <<<<<<< HEAD=======<h1>TODO:</h1>
             >>>>>>> 951c6dd417379bf217aaa40e8f54b2338695b48b
             <form method="POST" action="/">
@@ -24,6 +28,7 @@
                 {{form.title}}
                 <input class="btn btn-info" type="submit" name="Create Task">
             </form>
+=======
         <h3 class="text-info">To-Do:</h3>
         <form method="POST" action="/">
             {% csrf_token %}
@@ -47,6 +52,7 @@
 
                 </div>
                 {% endfor %}
+=======
             {% for task in tasks %}
             <div class="item-row container">
                 <div class="row">
@@ -65,9 +71,11 @@
                         <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
                     </div>
                 </div>
+>>>>>>> 53f887922643adf16a8a7bd80a807676d031a1b3
             </div>
     </div>
 </body>
+<<<<<<< HEAD
 <style>
     <<<<<<< HEAD body {
         background-color: #638CB8;
@@ -126,6 +134,8 @@
 
     =======>>>>>>>951c6dd417379bf217aaa40e8f54b2338695b48b
 </style>
+=======
+
 <script>
     function complete() {
         var checkBoxes = document.getElementsByClassName("chk");
@@ -142,5 +152,6 @@
         }
     }
 </script>
+>>>>>>> 53f887922643adf16a8a7bd80a807676d031a1b3
 
 </html>
