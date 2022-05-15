@@ -1,5 +1,4 @@
 # HawkHacks2022 - To-Do List with Django
-======  
 This is a web application developed with Python, Django and Bootstrap.   
 It provides the basic CRUD functions.  
 ## To Start  
